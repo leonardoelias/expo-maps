@@ -131,36 +131,20 @@ export class Marker extends React.Component<MarkerProps> {
 }
 
 function mapColor(color: MarkerColor): number {
-  switch (color) {
-    case 'azure': {
-      return 210;
-    }
-    case 'blue': {
-      return 240;
-    }
-    case 'cyan': {
-      return 180;
-    }
-    case 'green': {
-      return 120;
-    }
-    case 'magenta': {
-      return 300;
-    }
-    case 'orange': {
-      return 30;
-    }
-    case 'rose': {
-      return 330;
-    }
-    case 'violet': {
-      return 270;
-    }
-    case 'yellow': {
-      return 60;
-    }
+  const colors: Record<MarkerColor | 'default', number> = {
+    'azure': 210,
+    'blue': 240,
+    'cyan': 180,
+    'green': 120,
+    'magenta': 300,
+    'orange': 30,
+    'rose': 330,
+    'violet': 270,
+    'yellow': 60,
+    'red': 0,
+    'default': 0
   }
-  return 0;
+  return colors[color] || colors['default'];
 }
 
 function instanceOfMarker(child: any): child is Marker {
